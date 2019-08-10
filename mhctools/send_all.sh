@@ -5,7 +5,7 @@ to=$3
 round_to_integer=$4
 string=""
 ################################################################################
-dataHex=`echo -n $string | xxd -ps | tr -d '\n'`
+dataHex=`echo -n $string | xxd -ps | tr -d '\r\n'`
 pubkey=keys/$address.pub
 privkey=keys/$address.pem
 torrent_node="tor.net-$net.metahashnetwork.com:5795"

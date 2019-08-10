@@ -20,7 +20,7 @@ echo "balance1=$balance1"
 if [ "$balance1" -gt "0" ]
 then
     string="{\"method\":\"undelegate\"}"
-    dataHex=`echo -n $string | xxd -ps | tr -d '\n'`
+    dataHex=`echo -n $string | xxd -ps | tr -d '\r\n'`
     amount=0
     ./metahash.sh send-transaction --net=$net --pubkey=$pubkey --privkey=$privkey --send_to=$node --amount=$amount --dataHex=$dataHex
     sleep 3
@@ -32,7 +32,7 @@ then
 	balance2=$(($balance2/1000000*1000000))
     fi
     string="{\"method\":\"delegate\",\"params\":{\"value\":\"$balance2\"}}"
-    dataHex=`echo -n $string | xxd -ps | tr -d '\n'`
+    dataHex=`echo -n $string | xxd -ps | tr -d '\r\n'`
     amount=0
     echo "balance2=$balance2"
     if [ "$balance2" -gt "0" ]

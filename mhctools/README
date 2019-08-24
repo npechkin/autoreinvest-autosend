@@ -12,9 +12,9 @@
    Copy your private key to dir keys.
    Run this:
 
-#./keygen.sh 0x00_your_key_from_metagate.ec.priv
+#./metahash.sh dec-private-key --ecpriv=your_key_from_metagate.ec.priv
 
-Two key - keys/your_key_from_metagate.pem and keys/your_key_from_metagate.pub will do created.
+Two key - your_key_from_metagate.pem and your_key_from_metagate.pub will do created.
 
 3. Add this line to /etc/crontab   5 - hours local time. 0 - minutes.
 

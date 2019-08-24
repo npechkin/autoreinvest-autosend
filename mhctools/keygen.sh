@@ -1,23 +1,17 @@
 #!/bin/bash
-
-ecpriv=$1
-if [ "$ecpriv" = "" ]
-then
-    echo "USE: ./keygen.sh 0x00_your_key_from_metagate.ec.priv"
-else
-    test -f keys/$ecpriv
-    exist=$?
-    if [ "$exist" == "1" ]
-    then
-	echo "File keys/$ecpriv not exist!"
+#############   CONFIG   ###########################
+string="0x001"
+n=1000000000000
+####################################################
+i=0
+while [ "$i" -lt "$n" ]; do
+    address=`./metahash.sh generate | grep 'Your metahash address is' | awk -F' ' '{print $5}'`
+    add=`echo $address | grep $string`
+    if [ "$add" == "$address" ]; then
+	echo address=$address
     else
-	address=`echo $ecpriv | awk -F'.' '{print $1}'`
-	echo $address
-	./metahash.sh dec-private-key --net=main --ecpriv=keys/$address.ec.priv
-	cp mh.pem keys/$address.pem
-	rm mh.pem
-	./metahash.sh gen-public-key --net=main --privkey=keys/$address.pem
-	cp mh.pub keys/$address.pub
-	rm mh.pub
+	rm $address.pem
+	rm $address.pub
     fi
-fi
+    i=$(($i+1))
+done

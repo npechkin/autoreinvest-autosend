@@ -18,7 +18,7 @@ Two key - your_key_from_metagate.pem and your_key_from_metagate.pub will do crea
 
 3. Add this line to /etc/crontab   5 - hours local time. 0 - minutes.
 
-0 5     * * *   root    cd /path/to/mhctools && ./my_script.sh
+0 5     * * *   root    cd /path/to/mhctools/my_script.sh
 
 #service cron restart
 

@@ -10,10 +10,20 @@ net=main
 address=0x00_YOUR_ADDRESS
 node=0x00ADDRESS_OF_NODES
 round_to_integer=0
-#./reinvest $net $address $node $round_to_integer
+#./reinvest.sh $net $address $node $round_to_integer
+######################### UNDELEGATE EXAMPLE ###################################
+net=main
+address=0x00_YOUR_ADDRESS
+node=0x00ADDRESS_OF_NODES
+#./undelegate.sh $net $address $node
 ################################################################################
-cd /root/mhc/mhctools
-############################# SEND1 ############################################
+cd /root/mhctools
+############################ UNDELEGATE 1 ######################################
+net=main
+address=0x00_YOUR_ADDRESS
+node=0x00ADDRESS_OF_NODES
+#./undelegate.sh $net $address $node
+############################# SEND 1 ###########################################
 net=main
 address=
 to=
